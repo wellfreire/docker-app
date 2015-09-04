@@ -1,3 +1,3 @@
 FROM debian:jessie
 
-VOLUME /var/www/APP_NAME
+VOLUME /usr/share/nginx/html

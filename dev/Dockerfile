@@ -11,7 +11,7 @@ RUN apt-get -y install nodejs
 RUN npm install npm -g
 RUN npm -v
 
-ADD start /usr/local/bin/
-RUN chmod a+x /usr/local/bin/start
+ADD run.sh /usr/local/bin/
+RUN chmod a+x /usr/local/bin/run.sh
 
-CMD ["start"]
+CMD ["run.sh"]

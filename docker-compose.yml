@@ -1,10 +1,9 @@
 app:
     build: ./app
     volumes:
-        - /local/project/dir:/var/www/APP_NAME
-        - logs/APP_NAME:/var/www/APP_NAME/var/logs
+        - /your/local/projects/dir:/usr/share/nginx/html
     tty: true
-db_APP_NAME:
+db:
     image: mysql:latest
     ports:
         - 3306:3306
@@ -13,18 +12,20 @@ db_APP_NAME:
         MYSQL_DATABASE: DB_NAME
         MYSQL_USER: DB_USER
         MYSQL_PASSWORD: DB_PWD
-dev:
-    build: ./dev
-    volumes_from:
-        - app
+# dev:
+#     build: ./dev
+#     volumes_from:
+        # - app
 php:
     build: ./php-fpm
     expose:
         - 9000:9000
+    links:
+        - db
     volumes_from:
         - app
-    links:
-        - db_APP_NAME
+    volumes:
+        - logs/php/:/var/log/php
 nginx:
     build: ./nginx
     ports:
