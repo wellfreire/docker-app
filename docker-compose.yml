@@ -8,10 +8,10 @@ db:
     ports:
         - 3306:3306
     environment:
-        MYSQL_ROOT_PASSWORD: ROOT_PWD
-        MYSQL_DATABASE: DB_NAME
-        MYSQL_USER: DB_USER
-        MYSQL_PASSWORD: DB_PWD
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: docker_app
+        MYSQL_USER: admin
+        MYSQL_PASSWORD: admin
 # dev:
 #     build: ./dev
 #     volumes_from:
